@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">UsuarioAleatorio</string>
+    <string name="cell">Celular</string>
+    <string name="city">Ciudad</string>
+    <string name="country">País</string>
+    <string name="email">Correo</string>
+    <string name="gender">Género</string>
+    <string name="greeting">Hola mi nombre es <xliff:g example="John Doe" id="name">%s</xliff:g> y tengo <xliff:g example="2" id="age">%s</xliff:g> años de edad!</string>
+    <string name="no_users">No se econtraron usuarios.</string>
+    <string name="no_internet_connection">No hay conexión de internet.</string>
+    <string name="phone">Teléfono</string>
+    <string name="user_image">Imagen del usuario</string>
+</resources>

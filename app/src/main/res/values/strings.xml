@@ -1,0 +1,23 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">RandomUser</string>
+
+    <string name="no_users">No users found.</string>
+
+    <string name="no_internet_connection">No internet connection.</string>
+
+    <string name="greeting">Hello my name is <xliff:g example="John Doe" id="name">%s</xliff:g> and I am <xliff:g example="2" id="age">%s</xliff:g> years old! </string>
+
+    <string name="email">Email</string>
+
+    <string name="country">Country</string>
+
+    <string name="gender">Gender</string>
+
+    <string name="city">City</string>
+
+    <string name="cell">Cell</string>
+
+    <string name="phone">Phone</string>
+
+    <string name="user_image">User Image</string>
+</resources>
