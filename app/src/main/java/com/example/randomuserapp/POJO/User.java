@@ -2,13 +2,15 @@ package com.example.randomuserapp.POJO;
 
 import com.example.randomuserapp.R;
 
+import java.io.Serializable;
+
 /**
  * Un objeto {@link User} contiene información esencial y extra del
  * usuario, generado del "JSONPlaceholder API".
  *
  * @see <a href="https://jsonplaceholder.typicode.com/users">JSONPlaceholder</a>.
  */
-public class User {
+public class User implements Serializable {
 
     ///////////////////////////////////////////////////////////////////////////
     // Información esencial del usuario

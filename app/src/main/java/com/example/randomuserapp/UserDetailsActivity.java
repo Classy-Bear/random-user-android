@@ -7,7 +7,52 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.randomuserapp.POJO.User;
+
+import java.util.ArrayList;
+
 public class UserDetailsActivity extends AppCompatActivity {
+
+    private int[] textViews = {
+            R.id.name_output,
+            R.id.fullName,
+            R.id.username_output,
+            R.id.email_output,
+            R.id.phone_output,
+            R.id.website_output,
+            R.id.street_output,
+            R.id.suite_output,
+            R.id.city_output,
+            R.id.zipcode_output,
+            R.id.companyName_output,
+            R.id.catchPhrase_output,
+            R.id.greeting
+    };
+
+    public ArrayList<String> userData(User user) {
+        ArrayList<String> userList = new ArrayList<>();
+        userList.add(user.getName());
+        userList.add(user.getName());
+        userList.add(user.getUsername());
+        userList.add(user.getEmail());
+        userList.add(user.getPhone());
+        userList.add(user.getWebsite());
+        userList.add(user.getStreet());
+        userList.add(user.getSuite());
+        userList.add(user.getCity());
+        userList.add(user.getZipCode());
+        userList.add(user.getCompanyName());
+        userList.add(user.getCatchPhrase());
+        userList.add(getString(R.string.greeting,user.getName(),user.getCompanyName()));
+        return userList;
+    }
+
+    public void setTextViews(ArrayList<String> userData, int[] textViewResources){
+        for (int i = 0; i < textViewResources.length; i++) {
+            TextView textView = findViewById(textViewResources[i]);
+            textView.setText(userData.get(i));
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,46 +61,11 @@ public class UserDetailsActivity extends AppCompatActivity {
 
         //Previous Activity data
         Intent myIntent = getIntent();
-        String name = myIntent.getStringExtra("name");
-        String username = myIntent.getStringExtra("username");
-        String email = myIntent.getStringExtra("email");
-        String phone = myIntent.getStringExtra("phone");
-        String website = myIntent.getStringExtra("website");
-        String street = myIntent.getStringExtra("street");
-        String suite = myIntent.getStringExtra("suite");
-        String city = myIntent.getStringExtra("city");
-        String zipCode = myIntent.getStringExtra("zipCode");
-        String companyName = myIntent.getStringExtra("companyName");
-        String catchPhrase = myIntent.getStringExtra("catchPhrase");
-
-        TextView nameTextView = findViewById(R.id.name_output);
-        TextView fullNameTextView = findViewById(R.id.fullName);
-        TextView userNameTextView = findViewById(R.id.username_output);
-        TextView emailTextView = findViewById(R.id.email_output);
-        TextView phoneTextView = findViewById(R.id.phone_output);
-        TextView websiteTextView = findViewById(R.id.website_output);
-        TextView streetTextView = findViewById(R.id.street_output);
-        TextView suiteTextView = findViewById(R.id.suite_output);
-        TextView cityTextView = findViewById(R.id.city_output);
-        TextView zipCodeTextView = findViewById(R.id.zipcode_output);
-        TextView companyNameTextView = findViewById(R.id.companyName_output);
-        TextView catchPhraseTextView = findViewById(R.id.catchPhrase_output);
-        TextView greetingTextView = findViewById(R.id.greeting);
-
-        nameTextView.setText(name);
-        fullNameTextView.setText(name);
-        userNameTextView.setText(username);
-        emailTextView.setText(email);
-        phoneTextView.setText(phone);
-        websiteTextView.setText(website);
-        streetTextView.setText(street);
-        suiteTextView.setText(suite);
-        cityTextView.setText(city);
-        zipCodeTextView.setText(zipCode);
-        companyNameTextView.setText(companyName);
-        catchPhraseTextView.setText(catchPhrase);
-        greetingTextView.setText(getString(R.string.greeting, name,companyName));
+        User user = (User) myIntent.getSerializableExtra("user");
+        assert user != null;
+        setTextViews(userData(user), textViews);
     }
+
 
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {

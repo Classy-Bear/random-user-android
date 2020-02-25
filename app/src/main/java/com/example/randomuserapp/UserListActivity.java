@@ -71,17 +71,7 @@ public class UserListActivity extends AppCompatActivity implements LoaderCallbac
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent myIntent = new Intent(UserListActivity.this, UserDetailsActivity.class);
-                myIntent.putExtra("name", userList.get(position).getName());
-                myIntent.putExtra("username", userList.get(position).getUsername());
-                myIntent.putExtra("email", userList.get(position).getEmail());
-                myIntent.putExtra("phone", userList.get(position).getPhone());
-                myIntent.putExtra("website", userList.get(position).getWebsite());
-                myIntent.putExtra("street", userList.get(position).getStreet());
-                myIntent.putExtra("city", userList.get(position).getCity());
-                myIntent.putExtra("suite", userList.get(position).getSuite());
-                myIntent.putExtra("zipCode", userList.get(position).getZipCode());
-                myIntent.putExtra("companyName", String.valueOf(userList.get(position).getCompanyName()));
-                myIntent.putExtra("catchPhrase", userList.get(position).getCatchPhrase());
+                myIntent.putExtra("user", userList.get(position));
                 startActivity(myIntent);
             }
         });
