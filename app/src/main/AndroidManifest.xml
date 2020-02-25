@@ -15,6 +15,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:label="@string/user_details"
             android:name=".UserDetailsActivity"
             android:parentActivityName=".UserListActivity"
             tools:targetApi="jelly_bean" />

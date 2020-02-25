@@ -21,7 +21,6 @@ public class UserLoader extends AsyncTaskLoader<List<User>> {
      */
     private String mUrl;
 
-
     /**
      * Lista de Usuarios actual
      */

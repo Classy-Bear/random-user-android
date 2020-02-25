@@ -22,9 +22,9 @@ import java.util.List;
 
 /**
  * Métodos "Helpers" relacionados con la solicitud y recepción de datos
- * de Usuarios de "RANDOM USER GENERATOR API".
+ * de Usuarios de "JSONPlaceholder API".
  *
- * @see <a href="https://randomuser.me/">RANDOM USER GENERATOR</a>.
+ * @see <a href="https://jsonplaceholder.typicode.com/users">JSONPlaceholder</a>.
  */
 public final class QueryUtils {
 
@@ -42,7 +42,7 @@ public final class QueryUtils {
     /**
      * Consulta el conjunto de datos del API y devuelve una lista de objetos {@link User}.
      *
-     * @param requestUrl es el link del API (ejemplo: <a href="https://randomuser.me/api">https://randomuser.me/api</a>)
+     * @param requestUrl es el link del API (ejemplo: <a href="https://jsonplaceholder.typicode.com/users">https://jsonplaceholder.typicode.com/users</a>)
      * @return Una lista de {@link User} del parámetro requestUrl
      */
     public static List<User> fetchUserData(String requestUrl) {
@@ -63,7 +63,7 @@ public final class QueryUtils {
     /**
      * Forma una url de tipo {@link String} a tipo {@link URL}.
      *
-     * @param stringUrl es el link del API (ejemplo: <a href="https://randomuser.me/api">https://randomuser.me/api</a>)
+     * @param stringUrl es el link del API (ejemplo: <a href="https://jsonplaceholder.typicode.com/users">https://jsonplaceholder.typicode.com/users</a>)
      * @return La url formada ya en formato {@link URL}
      */
     private static URL createUrl(String stringUrl) {
@@ -141,9 +141,9 @@ public final class QueryUtils {
      * Devuelve una lista de objetos {@link User} que se
      * ha creado al analizar la respuesta JSON.
      */
-    private static List<User> extractFeatureFromJson(String earthquakeJSON) {
+    private static List<User> extractFeatureFromJson(String jsonResponse) {
         // Si la String JSON está vacía o es nula, regrese antes.
-        if (TextUtils.isEmpty(earthquakeJSON)) {
+        if (TextUtils.isEmpty(jsonResponse)) {
             return null;
         }
 
@@ -155,60 +155,58 @@ public final class QueryUtils {
         // en los registros.
         try {
 
-            JSONObject baseJsonResponse = new JSONObject(earthquakeJSON);
+            JSONArray baseJsonResponse = new JSONArray(jsonResponse);
 
-            // Extraiga el JSONArray asociado con la clave llamada "results",
-            //que representa una lista de resultados de usuarios.
-            JSONArray earthquakeArray = baseJsonResponse.getJSONArray("results");
             // Para cada usuario en la matriz de results, cree un objeto {@link User}
-            for (int i = 0; i < earthquakeArray.length(); i++) {
+            for (int i = 0; i < baseJsonResponse.length(); i++) {
 
-                // Obtenga un solo terremoto en la posición i dentro de la lista de terremotos
-                JSONObject currentEarthquake = earthquakeArray.getJSONObject(i);
+                // Obtenga un solo usuario en la posición i dentro de la lista de usuarios
+                JSONObject currentUser = baseJsonResponse.getJSONObject(i);
 
                 ///////////////////////////////////////////////////////////////////////////
-                // En el orden que están las variables en ese mismo orden está en el API.
+                // Información esencial del usuario
                 ///////////////////////////////////////////////////////////////////////////
 
-                String gender = currentEarthquake.getString("gender");
+                String name = currentUser.getString("name");
+                String userName = currentUser.getString("username");
+                String email = currentUser.getString("email");
 
-                // Para un Usuario dado, extraiga el objeto JSON asociado con la clave
-                // llamada "name", que representa una lista de todas las propiedades
-                // del nombre del Usuario.
-                JSONObject name = currentEarthquake.getJSONObject("name");
-                String first = name.getString("first");
-                String last = name.getString("last");
+                // Para un usuario dado, extraiga el objeto JSON asociado con la clave
+                // llamada "address", que representa una lista de todas las propiedades
+                // del la dirrección donde vive el Usuario.
+                JSONObject address = currentUser.getJSONObject("address");
+                String street = address.getString("street");
+                String suite = address.getString("suite");
+                String city = address.getString("city");
+                String zipCode = address.getString("zipcode");
 
-                // Para un Usuario dado, extraiga el objeto JSON asociado con la clave
-                // llamada "location", que representa una lista de todas las propiedades
-                // del la localización del Usuario.
-                JSONObject location = currentEarthquake.getJSONObject("location");
-                String city = location.getString("city");
-                String country = location.getString("country");
+                ///////////////////////////////////////////////////////////////////////////
+                // Más información esencial del usuario
+                ///////////////////////////////////////////////////////////////////////////
+                String phone = currentUser.getString("phone");
+                String website = currentUser.getString("website");
 
-                String email = currentEarthquake.getString("email");
+                // Para un usuario dado, extraiga el objeto JSON asociado con la clave
+                // llamada "company", que representa una lista de todas las propiedades
+                // del la compañia que trabaja el Usuario.
+                JSONObject company = currentUser.getJSONObject("company");
+                String companyName = company.getString("name");
+                String catchPhrase = company.getString("catchPhrase");
+                String bs = company.getString("bs");
 
-                // Para un Usuario dado, extraiga el objeto JSON asociado con la clave
-                // llamada "dob", que representa una lista de todas las propiedades
-                // de la fecha de nacimiento del Usuario.
-                JSONObject dob = currentEarthquake.getJSONObject("dob");
-                int age = dob.getInt("age");
+                // Cree un nuevo objeto {@link User} de la respuesta JSON.
+                User user = new User(name,userName,email,phone,website);
 
-                String phone = currentEarthquake.getString("phone");
+                // Data del Usuario
+                user.setStreet(street);
+                user.setSuite(suite);
+                user.setCity(city);
+                user.setZipCode(zipCode);
 
-                String cell = currentEarthquake.getString("cell");
-
-                // Para un Usuario dado, extraiga el objeto JSON asociado con la clave
-                // llamada "picture", que representa una lista de todas las propiedades
-                // de la foto de perfil del Usuario en tamaños diferentes.
-                JSONObject picture = currentEarthquake.getJSONObject("picture");
-                String medium = picture.getString("medium");
-                String thumbnail = picture.getString("thumbnail");
-
-                // Create a new {@link Earthquake} object with the magnitude, location, time,
-                // and url from the JSON response.
-                User user = new User(first, last, gender, email, thumbnail, medium);
-                user.setAdditionalInformation(age, city, country, phone, cell);
+                // Data de la compañia del Usuario
+                user.setCompanyName(companyName);
+                user.setCatchPhrase(catchPhrase);
+                user.setBS(bs);
 
                 //Agregue el nuevo {@link User} a la lista de usuarios.
                 users.add(user);
@@ -218,7 +216,7 @@ public final class QueryUtils {
             // Si se produce un error al ejecutar cualquiera de las declaraciones anteriores
             // en el bloque "try". Capture la excepción aquí, para que la aplicación no se
             // bloquee. Imprima un mensaje de registro con el mensaje de la excepción.
-            Log.e("QueryUtils", "Problema al analizar los resultados de JSON del terremoto", e);
+            Log.e("QueryUtils", "Problema al analizar los resultados de JSON del usuario", e);
         }
         return users;
     }

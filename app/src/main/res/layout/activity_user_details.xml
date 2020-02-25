@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,22 +9,74 @@
     android:background="@color/colorBackground"
     android:padding="16dp"
     tools:context=".UserDetailsActivity">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/picture_thumbnail"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="32dp"
-            android:contentDescription="@string/user_image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:background="@tools:sample/avatars" />
+        <TextView
+            android:id="@+id/suite_output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/suite"
+            app:layout_constraintEnd_toEndOf="@+id/street_output"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/street_output"
+            tools:text="Apt. 556" />
+
+        <TextView
+            android:id="@+id/zipcode_output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/zipcode"
+            app:layout_constraintEnd_toEndOf="@+id/city_output"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/city_output"
+            tools:text="92998-3874" />
+
+        <TextView
+            android:id="@+id/street_output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Kulas Light"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/street"
+            app:layout_constraintEnd_toEndOf="@+id/greeting"
+            app:layout_constraintHorizontal_bias="0.322"
+            app:layout_constraintStart_toEndOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/city_output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/city"
+            app:layout_constraintEnd_toEndOf="@+id/suite_output"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/suite_output"
+            tools:text="Gwenborough" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="256dp"
+            android:text="@string/company"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="32sp"
+            app:layout_constraintStart_toStartOf="@+id/biography"
+            app:layout_constraintTop_toBottomOf="@+id/website" />
+
+        <TextView
+            android:id="@+id/zipcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/zip_code"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="@+id/city"
+            app:layout_constraintTop_toBottomOf="@+id/city" />
 
         <TextView
             android:id="@+id/fullName"
@@ -32,15 +86,15 @@
             android:layout_centerInParent="true"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:textColor="@color/colorAccent"
             android:textSize="32sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/picture_thumbnail"
+            tools:layout_editor_absoluteY="26dp"
             tools:text="John Doe" />
 
         <TextView
@@ -48,7 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimary"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,145 +110,214 @@
             tools:text="@string/greeting" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/email"
-            android:textColor="@color/colorPrimaryDark"
+            android:text="@string/name"
+            android:textColor="@color/colorPrimary"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView3"
-            app:layout_constraintStart_toStartOf="@+id/greeting"
-            app:layout_constraintTop_toBottomOf="@+id/greeting" />
+            app:layout_constraintStart_toStartOf="@+id/biography"
+            app:layout_constraintTop_toBottomOf="@+id/biography" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/country"
-            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginTop="16dp"
+            android:text="@string/username"
+            android:textColor="@color/colorPrimary"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            app:layout_constraintStart_toStartOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/name_output"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/gender"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView6"
-            app:layout_constraintStart_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/city"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView7"
-            app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/cell"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView5"
-            app:layout_constraintStart_toStartOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/phone"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView4"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-        <TextView
-            android:id="@+id/email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginEnd="80dp"
             android:layout_marginRight="80dp"
             android:textColor="@color/colorAccent"
             android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
+            app:layout_constraintBaseline_toBaselineOf="@+id/name"
             app:layout_constraintEnd_toEndOf="@+id/greeting"
-            app:layout_constraintStart_toStartOf="@+id/fullName"
-            tools:text="johndoe@gmail.com" />
+            app:layout_constraintHorizontal_bias="0.547"
+            app:layout_constraintStart_toEndOf="@+id/biography"
+            tools:text="Leanne Graham" />
+
+        <TextView
+            android:id="@+id/phone_output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/phone"
+            app:layout_constraintEnd_toEndOf="@+id/email_output"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/email_output"
+            tools:text="1-770-736-8031 x56442" />
+
+        <TextView
+            android:id="@+id/website"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/website"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/phone"
+            app:layout_constraintTop_toBottomOf="@+id/phone" />
+
+        <TextView
+            android:id="@+id/username_output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/username"
+            app:layout_constraintEnd_toEndOf="@+id/name_output"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/name_output"
+            tools:text="Bret" />
+
+        <TextView
+            android:id="@+id/website_output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/website"
+            app:layout_constraintEnd_toEndOf="@+id/phone_output"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/phone_output"
+            tools:text="hildegard.org" />
 
         <TextView
             android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
+            android:layout_marginTop="16dp"
+            android:text="@string/phone"
+            android:textColor="@color/colorPrimary"
             android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView3"
-            app:layout_constraintEnd_toEndOf="@+id/email"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/email"
-            tools:text="077 194 94 43 " />
+            app:layout_constraintTop_toBottomOf="@+id/email" />
 
         <TextView
-            android:id="@+id/cell"
+            android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
-            app:layout_constraintEnd_toEndOf="@+id/phone"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/phone"
-            tools:text="077 194 94 43 " />
-
-        <TextView
-            android:id="@+id/gender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
+            android:layout_marginTop="16dp"
+            android:text="@string/email"
+            android:textColor="@color/colorPrimary"
             android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
-            app:layout_constraintEnd_toEndOf="@+id/cell"
+            app:layout_constraintStart_toStartOf="@+id/username"
+            app:layout_constraintTop_toBottomOf="@+id/username" />
+
+        <TextView
+            android:id="@+id/email_output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/email"
+            app:layout_constraintEnd_toEndOf="@+id/username_output"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/cell"
-            tools:text="female" />
+            app:layout_constraintStart_toStartOf="@+id/username_output"
+            tools:text="Sincere@april.biz" />
+
+        <TextView
+            android:id="@+id/biography"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/biography"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="32sp"
+            app:layout_constraintStart_toStartOf="@+id/greeting"
+            app:layout_constraintTop_toBottomOf="@+id/greeting" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/address"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="32sp"
+            app:layout_constraintStart_toStartOf="@+id/biography"
+            app:layout_constraintTop_toBottomOf="@+id/website" />
+
+        <TextView
+            android:id="@+id/street"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/street"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/suite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/suite"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="@+id/street"
+            app:layout_constraintTop_toBottomOf="@+id/street" />
 
         <TextView
             android:id="@+id/city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView6"
-            app:layout_constraintEnd_toEndOf="@+id/gender"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/gender"
-            tools:text="Tokyo" />
+            android:text="@string/city"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="@+id/suite"
+            app:layout_constraintTop_toBottomOf="@+id/suite" />
 
         <TextView
-            android:id="@+id/country"
+            android:id="@+id/companyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/company_name"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/catchPhrase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/catch_phrase"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="@+id/companyName"
+            app:layout_constraintTop_toBottomOf="@+id/companyName" />
+
+        <TextView
+            android:id="@+id/companyName_output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Romaguera-Crona"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/companyName"
+            app:layout_constraintEnd_toEndOf="@+id/greeting"
+            app:layout_constraintHorizontal_bias="0.277"
+            app:layout_constraintStart_toEndOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/catchPhrase_output"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccent"
-            android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView7"
-            app:layout_constraintEnd_toEndOf="@+id/city"
+            app:layout_constraintBaseline_toBaselineOf="@+id/catchPhrase"
+            app:layout_constraintEnd_toEndOf="@+id/companyName_output"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/city"
-            tools:text="Japan" />
+            app:layout_constraintStart_toStartOf="@+id/companyName_output"
+            tools:text="Multi-layered client-server neural-net" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

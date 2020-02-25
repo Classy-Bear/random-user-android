@@ -28,7 +28,7 @@ public class UserListActivity extends AppCompatActivity implements LoaderCallbac
     /**
      * URL para datos de Usuarios del conjunto de datos de RANDOM USER GENERATOR
      */
-    private static final String URL_API = "https://randomuser.me/api?results=10";
+    private static final String URL_API = "https://jsonplaceholder.typicode.com/users";
 
     /**
      * Valor constante para la identificación del "loader" de usuarios.
@@ -71,17 +71,17 @@ public class UserListActivity extends AppCompatActivity implements LoaderCallbac
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent myIntent = new Intent(UserListActivity.this, UserDetailsActivity.class);
-                myIntent.putExtra("firstName", userList.get(position).getmFirstName());
-                myIntent.putExtra("lastName", userList.get(position).getmLastName());
-                myIntent.putExtra("cityLocation", userList.get(position).getmCity());
-                myIntent.putExtra("countryLocation", userList.get(position).getmCountry());
-                myIntent.putExtra("email", userList.get(position).getmEmail());
-                myIntent.putExtra("phone", userList.get(position).getmPhone());
-                myIntent.putExtra("cell", userList.get(position).getmCell());
-                myIntent.putExtra("pictureMedium", userList.get(position).getmPictureMedium());
-                myIntent.putExtra("age", String.valueOf(userList.get(position).getmAge()));
-                myIntent.putExtra("gender", userList.get(position).getmGender());
-                myIntent.putExtra("cell", userList.get(position).getmCell());
+                myIntent.putExtra("name", userList.get(position).getName());
+                myIntent.putExtra("username", userList.get(position).getUsername());
+                myIntent.putExtra("email", userList.get(position).getEmail());
+                myIntent.putExtra("phone", userList.get(position).getPhone());
+                myIntent.putExtra("website", userList.get(position).getWebsite());
+                myIntent.putExtra("street", userList.get(position).getStreet());
+                myIntent.putExtra("city", userList.get(position).getCity());
+                myIntent.putExtra("suite", userList.get(position).getSuite());
+                myIntent.putExtra("zipCode", userList.get(position).getZipCode());
+                myIntent.putExtra("companyName", String.valueOf(userList.get(position).getCompanyName()));
+                myIntent.putExtra("catchPhrase", userList.get(position).getCatchPhrase());
                 startActivity(myIntent);
             }
         });

@@ -4,9 +4,9 @@ import com.example.randomuserapp.R;
 
 /**
  * Un objeto {@link User} contiene información esencial y extra del
- * usuario, generado del "RANDOM USER GENERATOR API".
+ * usuario, generado del "JSONPlaceholder API".
  *
- * @see <a href="https://randomuser.me/">RANDOM USER GENERATOR</a>.
+ * @see <a href="https://jsonplaceholder.typicode.com/users">JSONPlaceholder</a>.
  */
 public class User {
 
@@ -15,19 +15,14 @@ public class User {
     ///////////////////////////////////////////////////////////////////////////
 
     /**
-     * Primer nombre del usuario
+     * Nombre completo del usuario
      */
-    private String mFirstName;
+    private String mName;
 
     /**
-     * Primer apellido del usuario
+     * Nombre personalizado del usuario o "username"
      */
-    private String mLastName;
-
-    /**
-     * Género del usuario
-     */
-    private String mGender;
+    private String mUsername;
 
     /**
      * Correo del usuario
@@ -35,153 +30,149 @@ public class User {
     private String mEmail;
 
     /**
-     * Correo del usuario
+     * Teléfono del usuario
      */
-    private String mPictureThumbnail;
+    private String mPhone;
 
     /**
-     * Correo del usuario
+     * Sitio web del usuario
      */
-    private String mPictureMedium;
-
+    private String mWebsite;
 
     /**
      * Este constructor establece los valores esencial del usuario que se verán en {@link R.layout#activity_user_list}
      *
-     * @param firstName o primer nombre del usuario (ejem. John, Max, Pedro)
-     * @param lastName o apellido de usuario (ejem. Doe, Acevedo, Cabral)
-     * @param gender o género del usuario (ejm. femenino, masculino, no-binario)
-     * @param email o correo del usuario (ejm. johdoe@example.com, john892@gmail.com, pedro@outlook.com)
-     * @param pictureThumbnail o imagen en miniatura del usuario (<a href="https://randomuser.me/api/portraits/thumb/men/38.jpg/">imagen 48 x 48</a>)
-     * @param pictureMedium o imagen mediana del usuario (<a href="https://randomuser.me/api/portraits/med/men/38.jpg">imagen tipo 72 x 72</a>)
+     * @param name     o nombre (ejem. John, Max, Pedro)
+     * @param userName o nombre personalizado (ejem. john_doe, max78, p3dr0)
+     * @param email    o correo (ejm. johdoe@example.com, maX892@gmail.com, pedro@outlook.com)
+     * @param phone    o teléfono (ejem. "079 964 34 81", "074 649 31 51", "072 321 45 81")
+     * @param website  o sitio web (ejem. <a href="https://JohnDoe.com">www.JohnDoe.com</a>, <a href="https://max.com">https://max.com</a>, <a href="https://pedro.com">https://pedro.com</a>)
      */
-    public User(String firstName, String lastName, String gender, String email, String pictureThumbnail, String pictureMedium) {
-        this.mFirstName = firstName;
-        this.mLastName = lastName;
-        this.mGender = gender;
+    public User(String name, String userName, String email, String phone, String website) {
+        this.mName = name;
+        this.mUsername = userName;
         this.mEmail = email;
-        this.mPictureThumbnail = pictureThumbnail;
-        this.mPictureMedium = pictureMedium;
+        this.mPhone = phone;
+        this.mWebsite = website;
     }
 
-    /**
-     * Retorna el primer nombre del usuario
-     */
-    public String getmFirstName() {
-        return mFirstName;
+    public String getName() {
+        return mName;
     }
 
-    /**
-     * Retorna el último nombre del usuario
-     */
-    public String getmLastName() {
-        return mLastName;
+    public String getUsername() {
+        return mUsername;
     }
 
-    /**
-     * Retorna el genéro del usuario
-     */
-    public String getmGender() {
-        return mGender;
-    }
-
-    /**
-     * Retorna el correo del usuario
-     */
-    public String getmEmail() {
+    public String getEmail() {
         return mEmail;
     }
 
-    /**
-     * Retorna la imágen del usuario que se usará
-     * en el {@link com.example.randomuserapp.R.layout#activity_user_list}
-     */
-    public String getmPictureThumbnail() {
-        return mPictureThumbnail;
-    }
-
-    /**
-     * Retorna la imágen del usuario que se usará
-     * en el {@link com.example.randomuserapp.R.layout#activity_user_list}
-     */
-    public String getmPictureMedium() {
-        return mPictureMedium;
-    }
-
-    ///////////////////////////////////////////////////////////////////////////
-    // Información extra del Usuario
-    ///////////////////////////////////////////////////////////////////////////
-
-    /**
-     * Edad del usuario
-     */
-    private int mAge;
-    /**
-     * Ciudad del usuario
-     */
-    private String mCity;
-    /**
-     * País del usuario
-     */
-    private String mCountry;
-    /**
-     * Teléfono del usuario
-     */
-    private String mPhone;
-    /**
-     * Celular del usuario
-     */
-    private String mCell;
-
-    /**
-     * Este función establece los valores adicionales del usuario que se verán en {@link R.layout#activity_user_details}
-     *
-     * @param age o edad del usuario (ejem. 12, 46, 23)
-     * @param city o ciudad en la que reside el usuario (ejem. Tokyo, New York, Londres)
-     * @param country o país en la que reside el usuario (ejem. Japón, Estados Unidos, Reino Unido)
-     * @param phone o teléfono del usuario (ejem. "079 964 34 81", "074 649 31 51", "072 321 45 81")
-     * @param cell o celular del usuario (ejem. "077 194 94 43", "087 344 24 49", "072 362 69 29")
-     */
-    public void setAdditionalInformation(int age, String city, String country, String phone, String cell) {
-        this.mAge = age;
-        this.mCity = city;
-        this.mCountry = country;
-        this.mPhone = phone;
-        this.mCell = cell;
-    }
-
-    /**
-     * Retorna la edad del usuario
-     */
-    public int getmAge() {
-        return mAge;
-    }
-
-    /**
-     * Retorna la ciudad del usuario
-     */
-    public String getmCity() {
-        return mCity;
-    }
-
-    /**
-     * Retorna el país del usuario
-     */
-    public String getmCountry() {
-        return mCountry;
-    }
-
-    /**
-     * Retorna el teléfono del usuario
-     */
-    public String getmPhone() {
+    public String getPhone() {
         return mPhone;
     }
 
+    public String getWebsite() {
+        return mWebsite;
+    }
+
+    ///////////////////////////////////////////////////////////////////////////
+    // Datos de la dirección del usuario
+    ///////////////////////////////////////////////////////////////////////////
+
     /**
-     * Retorna el celular del usuario
+     * Calle en la que vive el usuario
      */
-    public String getmCell() {
-        return mCell;
+    private String mStreet;
+
+    /**
+     * Apartamento donde reside el usuario
+     */
+    private String mSuite;
+
+    /**
+     * Ciudad en la que vive el usuario
+     */
+    private String mCity;
+
+    /**
+     * Código postal que posee el usuario
+     */
+    private String mZipCode;
+
+    public String getStreet() {
+        return mStreet;
+    }
+
+    public void setStreet(String street) {
+        this.mStreet = street;
+    }
+
+    public String getSuite() {
+        return mSuite;
+    }
+
+    public void setSuite(String suite) {
+        this.mSuite = suite;
+    }
+
+    public String getCity() {
+        return mCity;
+    }
+
+    public void setCity(String city) {
+        this.mCity = city;
+    }
+
+    public String getZipCode() {
+        return mZipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.mZipCode = zipCode;
+    }
+
+    ///////////////////////////////////////////////////////////////////////////
+    // Datos de la compañia del usuario
+    ///////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Compañia que trabaja el usuario
+     */
+    private String mCompanyName;
+
+    /**
+     * Cita o eslogan del usaurio
+     */
+    private String mCatchPhrase;
+
+    /**
+     * Título universitario del usuario
+     */
+    private String mBS;
+
+    public String getCompanyName() {
+        return mCompanyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.mCompanyName = companyName;
+    }
+
+    public String getCatchPhrase() {
+        return mCatchPhrase;
+    }
+
+    public void setCatchPhrase(String catchPhrase) {
+        this.mCatchPhrase = catchPhrase;
+    }
+
+    public String getBS() {
+        return mBS;
+    }
+
+    public void setBS(String mBS) {
+        this.mBS = mBS;
     }
 }
+

@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">UsuarioAleatorio</string>
-    <string name="cell">Celular</string>
-    <string name="city">Ciudad</string>
+    <string name="email">Corre</string>
+    <string name="website">Sitio Web</string>
     <string name="country">País</string>
-    <string name="email">Correo</string>
-    <string name="gender">Género</string>
-    <string name="greeting">Hola mi nombre es <xliff:g example="John Doe" id="name">%s</xliff:g> y tengo <xliff:g example="2" id="age">%s</xliff:g> años de edad!</string>
+    <string name="name">Nombre</string>
+    <string name="phone">Teléfono</string>
+    <string name="greeting">Hola mi nombre es <xliff:g example="John Doe" id="name">%s</xliff:g> y trabajo en <xliff:g example="Romaguera-Crona" id="name">%s</xliff:g>.</string>
     <string name="no_users">No se econtraron usuarios.</string>
     <string name="no_internet_connection">No hay conexión de internet.</string>
-    <string name="phone">Teléfono</string>
+    <string name="username">Usuario</string>
     <string name="user_image">Imagen del usuario</string>
+    <string name="biography">Biografía</string>
+    <string name="address">Dirección</string>
+    <string name="company">Empresa</string>
+    <string name="street">Calle</string>
+    <string name="suite">Apartamento</string>
+    <string name="city">Ciudad</string>
+    <string name="zip_code">Código Postal</string>
+    <string name="company_name">Nombre de la empresa</string>
+    <string name="catch_phrase">Frase</string>
+    <string name="user_details">Detalles del Usuario</string>
 </resources>

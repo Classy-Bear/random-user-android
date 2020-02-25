@@ -3,12 +3,9 @@ package com.example.randomuserapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.squareup.picasso.Picasso;
 
 public class UserDetailsActivity extends AppCompatActivity {
 
@@ -19,36 +16,45 @@ public class UserDetailsActivity extends AppCompatActivity {
 
         //Previous Activity data
         Intent myIntent = getIntent();
-        String firstName = myIntent.getStringExtra("firstName");
-        String lastName = myIntent.getStringExtra("lastName");
-        String cityLocation = myIntent.getStringExtra("cityLocation");
-        String countryLocation = myIntent.getStringExtra("countryLocation");
+        String name = myIntent.getStringExtra("name");
+        String username = myIntent.getStringExtra("username");
         String email = myIntent.getStringExtra("email");
         String phone = myIntent.getStringExtra("phone");
-        String pictureMedium = myIntent.getStringExtra("pictureMedium");
-        String gender = myIntent.getStringExtra("gender");
-        String cell = myIntent.getStringExtra("cell");
-        String age = myIntent.getStringExtra("age");
+        String website = myIntent.getStringExtra("website");
+        String street = myIntent.getStringExtra("street");
+        String suite = myIntent.getStringExtra("suite");
+        String city = myIntent.getStringExtra("city");
+        String zipCode = myIntent.getStringExtra("zipCode");
+        String companyName = myIntent.getStringExtra("companyName");
+        String catchPhrase = myIntent.getStringExtra("catchPhrase");
 
-        TextView firstNameTextView = findViewById(R.id.fullName);
-        TextView cityLocationTextView = findViewById(R.id.city);
-        TextView countryLocationTextView = findViewById(R.id.country);
-        TextView emailTextView = findViewById(R.id.email);
-        TextView phoneTextView = findViewById(R.id.phone);
-        TextView genderTextView = findViewById(R.id.gender);
-        TextView cellTextView = findViewById(R.id.cell);
+        TextView nameTextView = findViewById(R.id.name_output);
+        TextView fullNameTextView = findViewById(R.id.fullName);
+        TextView userNameTextView = findViewById(R.id.username_output);
+        TextView emailTextView = findViewById(R.id.email_output);
+        TextView phoneTextView = findViewById(R.id.phone_output);
+        TextView websiteTextView = findViewById(R.id.website_output);
+        TextView streetTextView = findViewById(R.id.street_output);
+        TextView suiteTextView = findViewById(R.id.suite_output);
+        TextView cityTextView = findViewById(R.id.city_output);
+        TextView zipCodeTextView = findViewById(R.id.zipcode_output);
+        TextView companyNameTextView = findViewById(R.id.companyName_output);
+        TextView catchPhraseTextView = findViewById(R.id.catchPhrase_output);
         TextView greetingTextView = findViewById(R.id.greeting);
-        ImageView pictureMediumImageView = findViewById(R.id.picture_thumbnail);
 
-        firstNameTextView.setText(firstName);
-        cityLocationTextView.setText(cityLocation);
-        countryLocationTextView.setText(countryLocation);
+        nameTextView.setText(name);
+        fullNameTextView.setText(name);
+        userNameTextView.setText(username);
         emailTextView.setText(email);
         phoneTextView.setText(phone);
-        genderTextView.setText(gender);
-        cellTextView.setText(cell);
-        greetingTextView.setText(getString(R.string.greeting, firstName + " " + lastName, age));
-        Picasso.get().load(pictureMedium).into(pictureMediumImageView);
+        websiteTextView.setText(website);
+        streetTextView.setText(street);
+        suiteTextView.setText(suite);
+        cityTextView.setText(city);
+        zipCodeTextView.setText(zipCode);
+        companyNameTextView.setText(companyName);
+        catchPhraseTextView.setText(catchPhrase);
+        greetingTextView.setText(getString(R.string.greeting, name,companyName));
     }
 
     @Override

@@ -6,14 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.randomuserapp.POJO.User;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -61,27 +59,10 @@ public class UserAdapter extends ArrayAdapter<User> {
             Log.e(LOG_TAG, "currentUser is null");
         }else {
             TextView fullNameTextView = listItemView.findViewById(R.id.full_name);
-            /*
-             * El formato fullName consiste en la combinación de
-             * el primer nombre del usuario y el apellido del usuario
-             * separados por una coma.
-             *
-             * Ejemplo : John, Doe
-             * */
-            StringBuilder fullName = new StringBuilder();
-            fullName.append(currentUser.getmFirstName());
-            fullName.append(" ");
-            fullName.append(currentUser.getmLastName());
+            fullNameTextView.setText(currentUser.getName());
 
-            fullNameTextView.setText(fullName);
-
-            TextView emailTextView = listItemView.findViewById(R.id.email);
-            emailTextView.setText(currentUser.getmEmail());
-
-            ImageView pictureThumbnail = listItemView.findViewById(R.id.picture_thumbnail);
-
-            Picasso.get().load(currentUser.getmPictureThumbnail()).into(pictureThumbnail);
-
+            TextView emailTextView = listItemView.findViewById(R.id.name_output);
+            emailTextView.setText(currentUser.getEmail());
         }
         return listItemView;
     }

@@ -5,19 +5,29 @@
 
     <string name="no_internet_connection">No internet connection.</string>
 
-    <string name="greeting">Hello my name is <xliff:g example="John Doe" id="name">%s</xliff:g> and I am <xliff:g example="2" id="age">%s</xliff:g> years old! </string>
+    <string name="greeting">Hello my name is <xliff:g example="John Doe" id="name">%s</xliff:g> and I work at <xliff:g example="Romaguera-Crona" id="name">%s</xliff:g>. </string>
 
-    <string name="email">Email</string>
+    <string name="name">Name</string>
 
     <string name="country">Country</string>
 
-    <string name="gender">Gender</string>
-
-    <string name="city">City</string>
-
-    <string name="cell">Cell</string>
-
     <string name="phone">Phone</string>
 
+    <string name="website">Website</string>
+
+    <string name="email">Email</string>
+
+    <string name="username">Username</string>
+    <string name="user_details">User Details</string>
+
     <string name="user_image">User Image</string>
+    <string name="biography">Biography</string>
+    <string name="address">Address</string>
+    <string name="company">Company</string>
+    <string name="street">Street</string>
+    <string name="suite">Suite</string>
+    <string name="city">City</string>
+    <string name="zip_code">Zip Code</string>
+    <string name="company_name">Company Name</string>
+    <string name="catch_phrase">Catch Phrase</string>
 </resources>
